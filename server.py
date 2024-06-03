@@ -7,7 +7,7 @@ from Services.ScheduleService import get_schedule, register_user_to_equipment
 
 class EquipmentHandler(socketserver.BaseRequestHandler):
     def handle(self):
-        # Подключился новый клиент
+        ### Подключился новый клиент
         print(f'Client connected: {self.client_address}')
 
         # Обрабатываем сообщения от клиента

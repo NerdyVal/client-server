@@ -17,6 +17,6 @@ USERS_TABLE = 'users'
 mydb = pymysql.connect(
     host="localhost",
     user="admin",
-    password="qwerty1",
-    database='biolab',
+    password=" ",
+    database=' ',
 )

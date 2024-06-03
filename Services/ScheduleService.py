@@ -1,7 +1,7 @@
 from settings import SCHEDULE_TABLE, USERS_TABLE, EQUIPMENT_TABLE, mydb
 
 
-# Регистрация пользователя на оборудование, если оно свободно
+### Регистрация пользователя на оборудование, если оно свободно ###
 def register_user_to_equipment(user_id, equipment_id, started_at, finished_at):
     if check_free_equipment(started_at, finished_at):
         register_user_to_equipment_query = f"INSERT INTO {SCHEDULE_TABLE} " \
@@ -14,7 +14,7 @@ def register_user_to_equipment(user_id, equipment_id, started_at, finished_at):
     else:
         return False
 
-# Поиск занятого оборудования
+### Поиск занятого оборудования ###
 def check_free_equipment(started_at, finished_at):
     check_free_equipment_query = f"SELECT count(*) FROM " \
                                  f"{SCHEDULE_TABLE} WHERE started_at >= '{started_at}' AND started_at <= '{finished_at}' " \
@@ -27,7 +27,7 @@ def check_free_equipment(started_at, finished_at):
         else:
             return True
 
-## Поиск записей по оборудованию и пользователю
+### Поиск записей по оборудованию и пользователю ###
 def get_schedule(equipment_type):
     get_registered_users_on_equipment_query= f"SELECT u.surname, u.name, u.middlename, e.type, s.started_at, s.finished_at " \
                                              f"FROM {SCHEDULE_TABLE} as s " \
